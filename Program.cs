@@ -12,9 +12,26 @@ namespace Tic_Tac_Toe
             int botInput;
             int userInput;
 
+            /*
+              Membuat variabel apa game masih layak untuk dilanjutkan atau tidak
+              Jika salah satu pihak menang atau semua kotak terisi, nantinya nilai
+              apaGameBerjalan = false
+            */
+            bool apaGameBerjalan = true;
+            
+            //Panduan bagi program untuk parameter di method AI nanti
+            string playerSymbol = "O";
+            string computerSymbol = "X";
+
+            /*
+             * Variabel untuk memberitahu jumlah kotak yang sudah diisi
+             * Agar mempermudah penentuan gerakan AI
+             */
+            int kotakTerisi = 0;
+
 
             // Loop permainannya
-            while(true) {
+            while(apaGameBerjalan) {
 
                 // Dibagian ini berfungsi untuk mencari bot Input
                 // Bagian ini bisa diganti dengan bagaimanapun
@@ -22,6 +39,9 @@ namespace Tic_Tac_Toe
                 // variable "botInput" harus antara 1 - 9
                 Console.Write("Masukkan bot Input : ");
                 botInput = Convert.ToInt32(Console.ReadLine());
+
+                //Memberitahu program kalau kotak yang terisi + 1
+                kotakTerisi++;
 
                 // Jangan diganti !!
                 // Untuk mencari tahu kenapa nanti akan dikali -1
@@ -41,6 +61,9 @@ namespace Tic_Tac_Toe
                 Console.Write("Masukkan user Input : ");
                 userInput = Convert.ToInt32(Console.ReadLine());
 
+                //Memberitahu program kalau kotak yang terisi + 1
+                kotakTerisi++;
+
                 // Jangan diganti !!
                 Kotak = game.NilaiKotak(Kotak, (userInput - 1) * 1);
 
@@ -49,6 +72,8 @@ namespace Tic_Tac_Toe
 
             }
 
+            //Mereset jumlah kotak terisi setelah sesi permainan selesai
+            kotakTerisi = 0;
         }
     }
 }
