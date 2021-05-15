@@ -6,16 +6,9 @@ namespace Tic_Tac_Toe
 {
     class UI
     {
-        /*
-         1. dipslay board
-         2. score
-         
-         */
-
         static public void Board(string[] kotak)
         {
             Console.Clear();
-            
 
             Console.SetCursorPosition((Console.WindowWidth - 15) / 2, ((Console.WindowHeight) / 2)-5);
             Console.WriteLine("+=============+");
