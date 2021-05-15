@@ -9,13 +9,20 @@ namespace Tic_Tac_Toe
 
             // Inputnya diluar jangka
             if ((input > 8 || input < 0) && (pengenal == "P")) {
-                Console.WriteLine(input);
+                Console.SetCursorPosition((Console.WindowWidth - 23) / 2, ((Console.WindowHeight) / 2) + 5);
+                Console.Write("Masukkan user Input :         ");
+                Console.SetCursorPosition((Console.WindowWidth - 26) / 2, ((Console.WindowHeight) / 2) + 7);
                 Console.WriteLine("Pilihan hanya antara 1 - 9");
                 Program.Player(Kotak, pengenal);
             }
 
             // Bagian Kotaknya sudah terisi
             if (Kotak[input] != "#") {
+                UI.Board(Kotak);
+
+                Console.SetCursorPosition((Console.WindowWidth - 23) / 2, ((Console.WindowHeight) / 2) + 5);
+                Console.Write("Masukkan user Input :         ");
+                Console.SetCursorPosition((Console.WindowWidth - 29) / 2, ((Console.WindowHeight) / 2) + 7);
                 Console.WriteLine("Sudah terisi, pilih yang lain");
                 Program.Player(Kotak, pengenal);
             }
@@ -95,12 +102,22 @@ namespace Tic_Tac_Toe
 
             // Memutuskan Hasil akhir
             if (status == false && simbol == "X") {
-                Console.WriteLine("Komputer menang");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.SetCursorPosition((Console.WindowWidth - 18) / 2, ((Console.WindowHeight) / 2) - 7);
+                Console.WriteLine("Komputer menang !!");
+                Console.ResetColor();
             } else if (status == false && simbol == "O") {
-                Console.WriteLine("Player menang");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.SetCursorPosition((Console.WindowWidth - 16) / 2, ((Console.WindowHeight) / 2) - 7);
+                Console.WriteLine("Player menang !!");
+                Console.ResetColor();
             } else if (sisaKotak == 0) {
-                Console.WriteLine("Seri");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.SetCursorPosition((Console.WindowWidth - 8) / 2, ((Console.WindowHeight) / 2) - 7);
+                Console.WriteLine("..Seri..");
+                Console.ResetColor();
                 status = false;
+
             }
 
             return status;
